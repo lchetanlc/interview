@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(46, 44, 44);
+            color: white;
+
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        header h1 {
+            width: 400px;
+            margin: auto;
+            margin-right: -300px;
+        }
+
+        header p {
+            width: 400px;
+            margin: auto;
+        }
+
+        .main-body-left {
+            display: flex;
+            align-items: flex-start;
+            padding: 6px;
+            gap: 15px;
+            width: 250px;
+            background-color: rgb(48, 47, 47);
+            margin-top: 20px;
+            box-shadow: 5px 6px rgb(37, 36, 36);
+        }
+
+        .main-body-left img {
+            height: 50px;
+            margin-top: 20px;
+        }
+
+        .main-body-right {
+            display: flex;
+            padding: 30px;
+            height: 70vh;
+            background-color: rgb(48, 47, 47);
+            box-shadow: 5px 6px rgb(37, 36, 36);
+
+        }
+
+        .nameandmail {
+            display: flex;
+            gap: 30px;
+            margin: 30px;
+        }
+
+        .nameandmail div {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .text {
+            margin-left: 30px;
+        }
+
+        .btn {
+            margin-left: 30px;
+            margin-top: 30px;
+        }
+
+        .main-body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        input,
+        textarea,
+        select {
+            color: grey;
+            background-color: rgb(34, 33, 33);
+            padding: 7px;
+            border: none;
+
+        }
+
+        select {
+            width: 180px;
+        }
+
+        .btn input {
+            height: 30px;
+            width: 120px;
+
+            background-color: rgb(236, 236, 16);
+            border: dotted;
+            color: grey;
+        }
+
+        form h3 {
+            margin-left: 30px;
+            font-size: 15px;
+            line-height: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>GET IN TOUCH ANY TIME FOR ANY HELP!</h1>
+            <p>We understand the importance of approaching each work interally and belive in the power of simple.</p>
+        </header>
+        <div class="main-body">
+            <div>
+                <div class="main-body-left">
+                    <div>
+                        <img
+                            src="https://upload.wikimedia.org/wikipedia/en/thumb/3/35/Information_icon.svg/768px-Information_icon.svg.png">
+                    </div>
+                    <div>
+                        <h3>OFFICE ADDRESS</h3>
+                        <p>Digital Agency Network 20 Eastword London WI GLG</p>
+                    </div>
+                </div>
+                <div class="main-body-left">
+                    <div>
+                        <img
+                            src="https://upload.wikimedia.org/wikipedia/en/thumb/3/35/Information_icon.svg/768px-Information_icon.svg.png">
+                    </div>
+                    <div>
+                        <h3>OFFICE ADDRESS</h3>
+                        <p>Digital Agency Network 20 Eastword London WI GLG</p>
+                    </div>
+                </div>
+                <div class="main-body-left">
+                    <div>
+                        <img
+                            src="https://upload.wikimedia.org/wikipedia/en/thumb/3/35/Information_icon.svg/768px-Information_icon.svg.png">
+                    </div>
+                    <div>
+                        <h3>OFFICE ADDRESS</h3>
+                        <p>Digital Agency Network 20 Eastword London WI GLG</p>
+                    </div>
+                </div>
+            </div>
+            <div class="main-body-right">
+                <form name="myform" method="POST" onsubmit="return validateform()">
+                    <h3>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </h3>
+                    <div class="nameandmail">
+                        <div>
+                            <label>Name(required)</label>
+                            <input type="text" name="name" placeholder="Your name*">
+                            <span id="nameerror"></span>
+                        </div>
+                        <div>
+                            <label for="email">Email(required)</label>
+                            <input type="text" name="email" placeholder="Your Mail*">
+                            <span class="pop"></span>
+                        </div>
+                    </div>
+                    <div class="nameandmail">
+                        <div>
+                            <label for="num">Phone(required)</label>
+                            <input type="text" name="num" placeholder="Your name*">
+                            <span id="numloc"></span>
+                        </div>
+                        <div>
+                            <label for="emailaddress">Services(required)</label>
+                            <select value="Select Service">
+                                <option>Select Service</option>
+                                <option>Select Service</option>
+                                <option>Select Service</option>
+                                <option>Select Service</soption>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <textarea rows="10" cols="48" placeholder="Type message*" name="textarea"></textarea>
+                        <span class="tt"></span>
+                    </div>
+                    <div class="btn">
+                        <input type="submit" value="Click Here">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function validateform() {
+            var x = document.myform.email.value;
+            var num = document.myform.num.value;
+            var name = document.forms["myform"].name.value;
+            var textarea = document.myform.textarea.value;
+            var atpostion = x.indexOf('@');
+            var dotposition = x.lastIndexOf(".");
+            if (isNaN(num) || num.length < 10) {
+                document.getElementById('numloc').innerHTML = "Enter Numeric value";
+
+            } else {
+                return true;
+            }
+            if (name == null || name == "") {
+                // 
+                document.getElementById('nameerror').innerHTML = "Enter Valid";
+
+            } else {
+                return true;
+            }
+            if (isNaN(textarea) || textarea.length < 20) {
+                document.getElementById("tt").innerHTML = "Enter Text";
+
+            } else {
+                return true;
+            }
+            if (atpostion < 1 || dotposition < atpostion + 2 || dotposition + 2 >= x.length) {
+               document.getElementById("pop").innerHTML="Error";
+                return false;
+            }
+        }
+        
+    </script>
+</body>
+
+</html>
